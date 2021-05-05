@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
+
+import 'colors.dart';
 
 class CustomToolbar extends StatelessWidget implements PreferredSizeWidget {
   final String _title;
@@ -12,7 +15,7 @@ class CustomToolbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(_title),
-      backgroundColor: Colors.red,
+      backgroundColor: HexColor(PaletteColors.PRIMARY_COLOR),
     );
   }
 }

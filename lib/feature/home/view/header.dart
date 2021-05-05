@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:vitamin_of_the_day/view/colors.dart';
 
 class Header extends StatelessWidget {
-  final String _questionText;
-  final Function _pressedUpdate;
+  final String _tipText;
+  final Function _pressedUpdateTip;
+  final Function _pressedHeader;
 
-  Header(this._questionText, this._pressedUpdate);
+  Header(this._tipText, this._pressedUpdateTip, this._pressedHeader);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class Header extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white60,
         border: Border.all(
-          color: Colors.black87,
+          color: HexColor(PaletteColors.BORDER_COLOR),
           width: 2,
         ),
         borderRadius: BorderRadius.circular(8),
@@ -28,7 +31,7 @@ class Header extends StatelessWidget {
             children: [
               Container(
                 child: IconButton(
-                  onPressed: _pressedUpdate,
+                  onPressed: _pressedUpdateTip,
                   iconSize: 28.0,
                   icon: Icon(Icons.update_rounded),
                 ),
@@ -39,16 +42,19 @@ class Header extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Container(
-                padding: EdgeInsets.only(left: 16, right: 16),
-                child: Text(
-                  "Vitamina de banana com mamão",
-                  style: TextStyle(
-                    color: Colors.black54,
-                    fontSize: 16,
+              GestureDetector(
+                onTap: _pressedHeader,
+                child: Container(
+                  padding: EdgeInsets.only(left: 16, right: 16),
+                  child: Text(
+                    _tipText,
+                    style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: 16,
+                    ),
                   ),
                 ),
-              )
+              ),
             ],
           )
         ],
