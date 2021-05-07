@@ -23,55 +23,59 @@ class _MyAppState extends State<MyApp> {
             appBar: CustomToolbar("Vitamina do Dia"), body: _setBody()));
   }
 
-  SingleChildScrollView _setBody() {
-    return SingleChildScrollView(
-      child: Container(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          children: [
-            HomeItemView(createHomeModelFirstCard(), pressedFirstCard),
-            HomeItemView(createHomeModelSecondCard(), pressedSecondCard),
-            HomeItemView(createHomeModelThirdCard(), pressedThirdCard),
-          ],
+  Container _setBody() {
+    return Container(
+      color: Colors.white30,
+      height: double.infinity,
+      child: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            children: [
+              HomeItemView(_createLuckOfTheDayModel(), pressedLuckOfTheDayCard),
+              HomeItemView(_createSmartVitaminModel(), pressedSmartVitaminCard),
+              HomeItemView(_createSearchVitaminModel(), pressedSearchVitaminCard),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  HomeModel createHomeModelFirstCard() {
+  HomeModel _createLuckOfTheDayModel() {
     return HomeModel(
         "Sorte do Dia",
         "Está díficil de escolher a vitamina de hoje né? Deixa que a gente selecione uma para você!!",
         HexColor(PaletteColors.firstCardColor));
   }
 
-  HomeModel createHomeModelSecondCard() {
+  HomeModel _createSmartVitaminModel() {
     return HomeModel(
         "Vitamina Inteligente",
         "Não sabe qual vitamina fazer? Que tal você nos falar o que tem na geladeira e a gente falar o que você pode fazer?",
         HexColor(PaletteColors.thirdCardColor));
   }
 
-  HomeModel createHomeModelThirdCard() {
+  HomeModel _createSearchVitaminModel() {
     return HomeModel(
         "Pesquisar Vitaminas",
         "Veja todas vitamonas que temos cadastradas.",
         HexColor(PaletteColors.secondCardColor));
   }
 
-  void pressedFirstCard() {
+  void pressedLuckOfTheDayCard() {
     setState(() {
-      print("pressedThirdCard");
+      print("pressedFirstCard");
     });
   }
 
-  void pressedSecondCard() {
+  void pressedSmartVitaminCard() {
     setState(() {
-      print("pressedThirdCard");
+      print("pressedSecondCard");
     });
   }
 
-  void pressedThirdCard() {
+  void pressedSearchVitaminCard() {
     setState(() {
       print("pressedThirdCard");
     });

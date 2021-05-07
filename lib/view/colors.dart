@@ -1,8 +1,8 @@
 class PaletteColors {
 
-  static String primaryColor = "#673ab7";
-  static String firstCardColor = "#00796b";
-  static String secondCardColor = "#1976d2";
-  static String thirdCardColor = "#7b1fa2";
+  static String primaryColor = "#0d47a1";
+  static String firstCardColor = "#b71c1c";
+  static String secondCardColor = "#1b5e20";
+  static String thirdCardColor = "#f57f17";
 
 }
