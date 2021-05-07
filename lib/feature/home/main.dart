@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:vitamin_of_the_day/feature/home/model/home.dart';
+import 'package:vitamin_of_the_day/view/colors.dart';
 
 import '../../view/toolbar.dart';
-import 'view/body.dart';
-import 'view/header.dart';
+import 'view/item_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,49 +16,61 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var vitaminOfTheDay = "vitamina de banana";
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      appBar: CustomToolbar("Vitamina do Dia"),
-      body: Column(
-        children: [
-          Header(vitaminOfTheDay, pressedUpdateTip, pressedHeader),
-          Row(
-            children: [
-              Body("Pesquisar", pressedSearch),
-              Spacer(),
-              Body("Filtrar por frutas", pressedFilter),
-            ],
-          ),
-        ],
+            appBar: CustomToolbar("Vitamina do Dia"), body: _setBody()));
+  }
+
+  SingleChildScrollView _setBody() {
+    return SingleChildScrollView(
+      child: Container(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+            HomeItemView(createHomeModelFirstCard(), pressedFirstCard),
+            HomeItemView(createHomeModelSecondCard(), pressedSecondCard),
+            HomeItemView(createHomeModelThirdCard(), pressedThirdCard),
+          ],
+        ),
       ),
-    ));
+    );
   }
 
-  void pressedFilter() {
+  HomeModel createHomeModelFirstCard() {
+    return HomeModel(
+        "Vitamina do Dia",
+        "Não sabe qual vitamina tomar hoje, deixa que a gente escolhe uma para você.",
+        HexColor(PaletteColors.COLOR_CARD_1));
+  }
+
+  HomeModel createHomeModelSecondCard() {
+    return HomeModel(
+        "Pesquisar Vitaminas",
+        "Veja todas vitamonas que temos cadastradas.",
+        HexColor(PaletteColors.COLOR_CARD_2));
+  }
+
+  HomeModel createHomeModelThirdCard() {
+    return HomeModel("", "", HexColor(PaletteColors.COLOR_CARD_3));
+  }
+
+  void pressedFirstCard() {
     setState(() {
-      print("pressedFilter");
+      print("pressedThirdCard");
     });
   }
 
-  void pressedUpdateTip() {
+  void pressedSecondCard() {
     setState(() {
-      print("pressedUpdateTip");
+      print("pressedThirdCard");
     });
   }
 
-  void pressedSearch() {
+  void pressedThirdCard() {
     setState(() {
-      print("pressedSearch");
-    });
-  }
-
-  void pressedHeader() {
-    setState(() {
-      print("pressedHeader");
+      print("pressedThirdCard");
     });
   }
 }
