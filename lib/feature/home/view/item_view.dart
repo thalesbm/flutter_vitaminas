@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vitamin_of_the_day/feature/home/model/home.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeItemView extends StatelessWidget {
   final HomeModel _homeModel;
@@ -42,9 +43,12 @@ class HomeItemView extends StatelessWidget {
         alignment: Alignment.bottomLeft,
         child: Text(
           _homeModel.title,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18,
+          style: GoogleFonts.ubuntu(
+            textStyle: TextStyle(
+              letterSpacing: 2,
+              color: Colors.white,
+              fontSize: 18,
+            ),
           ),
         ),
       ),
@@ -58,9 +62,12 @@ class HomeItemView extends StatelessWidget {
         alignment: Alignment.bottomLeft,
         child: Text(
           _homeModel.description,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 14,
+          style: GoogleFonts.ubuntu(
+            textStyle: TextStyle(
+              letterSpacing: 1,
+              color: Colors.white,
+              fontSize: 14,
+            ),
           ),
         ),
       ),

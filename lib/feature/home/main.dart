@@ -40,20 +40,23 @@ class _MyAppState extends State<MyApp> {
 
   HomeModel createHomeModelFirstCard() {
     return HomeModel(
-        "Vitamina do Dia",
-        "Não sabe qual vitamina tomar hoje, deixa que a gente escolhe uma para você.",
-        HexColor(PaletteColors.COLOR_CARD_1));
+        "Sorte do Dia",
+        "Está díficil de escolher a vitamina de hoje né? Deixa que a gente selecione uma para você!!",
+        HexColor(PaletteColors.firstCardColor));
   }
 
   HomeModel createHomeModelSecondCard() {
     return HomeModel(
-        "Pesquisar Vitaminas",
-        "Veja todas vitamonas que temos cadastradas.",
-        HexColor(PaletteColors.COLOR_CARD_2));
+        "Vitamina Inteligente",
+        "Não sabe qual vitamina fazer? Que tal você nos falar o que tem na geladeira e a gente falar o que você pode fazer?",
+        HexColor(PaletteColors.thirdCardColor));
   }
 
   HomeModel createHomeModelThirdCard() {
-    return HomeModel("", "", HexColor(PaletteColors.COLOR_CARD_3));
+    return HomeModel(
+        "Pesquisar Vitaminas",
+        "Veja todas vitamonas que temos cadastradas.",
+        HexColor(PaletteColors.secondCardColor));
   }
 
   void pressedFirstCard() {
