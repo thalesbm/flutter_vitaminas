@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vitamin_of_the_day/feature/home/model/home.dart';
+import 'package:vitamin_of_the_day/feature/home/model/home_model.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeItemView extends StatelessWidget {

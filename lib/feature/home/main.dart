@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:vitamin_of_the_day/feature/home/model/home.dart';
+import 'package:vitamin_of_the_day/feature/home/model/home_model.dart';
 import 'package:vitamin_of_the_day/view/colors.dart';
 
 import '../../view/toolbar.dart';
+import 'model/home_model.dart';
 import 'view/item_view.dart';
 
 void main() {
