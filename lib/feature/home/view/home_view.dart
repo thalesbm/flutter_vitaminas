@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:vitamin_of_the_day/feature/home/model/home_model.dart';
 import 'package:vitamin_of_the_day/common/view/colors.dart';
 import 'package:vitamin_of_the_day/common/view/toolbar.dart';
+import 'package:vitamin_of_the_day/feature/home/model/home_model.dart';
+import 'package:vitamin_of_the_day/feature/smart/view/smart_view.dart';
 
 import 'item_view.dart';
 
 class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
-            appBar: CustomToolbar("Vitamina do Dia"), body: _setBody()));
+    return MaterialApp(home: Scaffold(appBar: CustomToolbar("Vitamina do Dia"), body: _setBody()));
   }
 
   Container _setBody() {
@@ -25,8 +24,7 @@ class HomeView extends StatelessWidget {
             children: [
               HomeItemView(_createLuckOfTheDayModel(), pressedLuckOfTheDayCard),
               HomeItemView(_createSmartVitaminModel(), pressedSmartVitaminCard),
-              HomeItemView(
-                  _createSearchVitaminModel(), pressedSearchVitaminCard),
+              HomeItemView(_createSearchVitaminModel(), pressedSearchVitaminCard),
             ],
           ),
         ),
@@ -50,20 +48,20 @@ class HomeView extends StatelessWidget {
 
   HomeModel _createSearchVitaminModel() {
     return HomeModel(
-        "Pesquisar Vitaminas",
-        "Veja todas vitamonas que temos cadastradas.",
-        HexColor(PaletteColors.secondCardColor));
+        "Pesquisar Vitaminas", "Veja todas vitamonas que temos cadastradas.", HexColor(PaletteColors.secondCardColor));
   }
 
-  void pressedLuckOfTheDayCard() {
+  void pressedLuckOfTheDayCard(BuildContext context) {
     print("pressedFirstCard");
   }
 
-  void pressedSmartVitaminCard() {
+  void pressedSmartVitaminCard(BuildContext context) {
     print("pressedSecondCard");
   }
 
-  void pressedSearchVitaminCard() {
-      print("pressedThirdCard");
+  void pressedSearchVitaminCard(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+      return SmartView();
+    }));
   }
 }

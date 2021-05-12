@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vitamin_of_the_day/feature/home/model/home_model.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vitamin_of_the_day/feature/home/model/home_model.dart';
 
 class HomeItemView extends StatelessWidget {
   final HomeModel _homeModel;
@@ -17,7 +17,7 @@ class HomeItemView extends StatelessWidget {
           color: Colors.transparent,
           child: InkWell(
             onTap: () {
-              this._pressedItem();
+              this._pressedItem(context);
             },
             child: Container(
               width: double.infinity,
