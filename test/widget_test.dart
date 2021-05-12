@@ -1,4 +1,4 @@
-import 'package:vitamin_of_the_day/feature/home/main.dart';
+import 'package:vitamin_of_the_day/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

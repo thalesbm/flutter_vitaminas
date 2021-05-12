@@ -1,22 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:vitamin_of_the_day/feature/home/model/home_model.dart';
-import 'package:vitamin_of_the_day/view/colors.dart';
+import 'package:vitamin_of_the_day/common/view/colors.dart';
+import 'package:vitamin_of_the_day/common/view/toolbar.dart';
 
-import '../../view/toolbar.dart';
-import 'model/home_model.dart';
-import 'view/item_view.dart';
+import 'item_view.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
+class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,7 +25,8 @@ class _MyAppState extends State<MyApp> {
             children: [
               HomeItemView(_createLuckOfTheDayModel(), pressedLuckOfTheDayCard),
               HomeItemView(_createSmartVitaminModel(), pressedSmartVitaminCard),
-              HomeItemView(_createSearchVitaminModel(), pressedSearchVitaminCard),
+              HomeItemView(
+                  _createSearchVitaminModel(), pressedSearchVitaminCard),
             ],
           ),
         ),
@@ -65,20 +56,14 @@ class _MyAppState extends State<MyApp> {
   }
 
   void pressedLuckOfTheDayCard() {
-    setState(() {
-      print("pressedFirstCard");
-    });
+    print("pressedFirstCard");
   }
 
   void pressedSmartVitaminCard() {
-    setState(() {
-      print("pressedSecondCard");
-    });
+    print("pressedSecondCard");
   }
 
   void pressedSearchVitaminCard() {
-    setState(() {
       print("pressedThirdCard");
-    });
   }
 }
