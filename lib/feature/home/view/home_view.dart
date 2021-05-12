@@ -3,6 +3,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:vitamin_of_the_day/common/view/colors.dart';
 import 'package:vitamin_of_the_day/common/view/toolbar.dart';
 import 'package:vitamin_of_the_day/feature/home/model/home_model.dart';
+import 'package:vitamin_of_the_day/feature/search/view/search_view.dart';
 import 'package:vitamin_of_the_day/feature/smart/view/smart_view.dart';
 
 import 'item_view.dart';
@@ -52,16 +53,17 @@ class HomeView extends StatelessWidget {
   }
 
   void pressedLuckOfTheDayCard(BuildContext context) {
-    print("pressedFirstCard");
   }
 
   void pressedSmartVitaminCard(BuildContext context) {
-    print("pressedSecondCard");
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+      return SmartView();
+    }));
   }
 
   void pressedSearchVitaminCard(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-      return SmartView();
+      return SearchView();
     }));
   }
 }
