@@ -10,12 +10,12 @@ class SearchView extends StatelessWidget {
   }
 
   List<VitaminModel> model = [
-    VitaminModel("Banana com mamão", "Vitamina saudavel facil e rapido de fazer"),
-    VitaminModel("Banana com mamão", "Vitamina saudavel facil e rapido de fazer"),
-    VitaminModel("Banana com mamão", "Vitamina saudavel facil e rapido de fazer"),
-    VitaminModel("Banana com mamão", "Vitamina saudavel facil e rapido de fazer"),
-    VitaminModel("Banana com mamão", "Vitamina saudavel facil e rapido de fazer"),
-    VitaminModel("Banana com mamão", "Vitamina saudavel facil e rapido de fazer"),
+    VitaminModel("Banana com mamão", "Vitamina saudavel facil e rapido de fazer", ""),
+    VitaminModel("Banana com mamão", "Vitamina saudavel facil e rapido de fazer", ""),
+    VitaminModel("Banana com mamão", "Vitamina saudavel facil e rapido de fazer", ""),
+    VitaminModel("Banana com mamão", "Vitamina saudavel facil e rapido de fazer", ""),
+    VitaminModel("Banana com mamão", "Vitamina saudavel facil e rapido de fazer", ""),
+    VitaminModel("Banana com mamão", "Vitamina saudavel facil e rapido de fazer", ""),
   ];
 
   ListView _setBody(BuildContext context) {

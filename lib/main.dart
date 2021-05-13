@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:vitamin_of_the_day/feature/home/view/home_view.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(VitaminApp());
 }
 
-class MyApp extends StatefulWidget {
+class VitaminApp extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _VitaminAppState createState() => _VitaminAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _VitaminAppState extends State<VitaminApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

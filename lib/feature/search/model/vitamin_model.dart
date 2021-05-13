@@ -1,10 +1,8 @@
 class VitaminModel {
   String title;
   String description;
+  String icon;
   List<String> ingredients = [];
 
-  VitaminModel(String title, String description) {
-    this.title = title;
-    this.description = description;
-  }
+  VitaminModel(this.title, this.description, this.icon);
 }

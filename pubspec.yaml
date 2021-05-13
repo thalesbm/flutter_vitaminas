@@ -1,7 +1,7 @@
 name: vitamin_of_the_day
 description: Vitamin of the Day
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
@@ -10,7 +10,6 @@ environment:
 dependencies:
   hexcolor: ^2.0.3
   google_fonts: ^2.0.0
-
   flutter:
     sdk: flutter
 
@@ -18,9 +17,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter.
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/

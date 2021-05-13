@@ -39,16 +39,18 @@ class ItemView extends StatelessWidget {
     );
   }
 
-  Icon _getLeadingIcon() {
+  Icon _getTrailingIcon() {
     return Icon(
       Icons.keyboard_arrow_right,
       color: Colors.black54,
     );
   }
 
-  Icon _getTrailingIcon() {
-    return Icon(
-      Icons.keyboard_arrow_right,
+  Image _getLeadingIcon() {
+    return Image(
+      image: AssetImage('assets/images/001-orange.png'),
+      height: 36,
+      width: 36,
     );
   }
 }
