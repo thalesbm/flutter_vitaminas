@@ -11,7 +11,7 @@ import 'item_view.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Scaffold(appBar: CustomToolbar("Vitamina do Dia", displayBackButton: false), body: _setBody()));
+    return Scaffold(appBar: CustomToolbar("Vitamina do Dia", displayBackButton: false), body: _setBody());
   }
 
   Container _setBody() {

@@ -6,7 +6,7 @@ import 'package:vitamin_of_the_day/feature/search/view/item_view.dart';
 class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Scaffold(appBar: CustomToolbar("Vitaminas"), body: _setBody(context)));
+    return Scaffold(appBar: CustomToolbar("Vitaminas"), body: _setBody(context));
   }
 
   List<VitaminModel> model = [
@@ -27,5 +27,6 @@ class SearchPage extends StatelessWidget {
     );
   }
 
-  void pressedItem(BuildContext context) {}
+  void pressedItem(BuildContext context) {
+  }
 }
