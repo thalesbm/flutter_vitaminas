@@ -3,15 +3,15 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:vitamin_of_the_day/common/view/colors.dart';
 import 'package:vitamin_of_the_day/common/view/toolbar.dart';
 import 'package:vitamin_of_the_day/feature/home/model/home_model.dart';
-import 'package:vitamin_of_the_day/feature/search/view/search_view.dart';
-import 'package:vitamin_of_the_day/feature/smart/view/smart_view.dart';
+import 'package:vitamin_of_the_day/feature/search/view/search_page.dart';
+import 'package:vitamin_of_the_day/feature/smart/view/smart_page.dart';
 
 import 'item_view.dart';
 
-class HomeView extends StatelessWidget {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Scaffold(appBar: CustomToolbar("Vitamina do Dia"), body: _setBody()));
+    return MaterialApp(home: Scaffold(appBar: CustomToolbar("Vitamina do Dia", displayBackButton: false), body: _setBody()));
   }
 
   Container _setBody() {
@@ -57,13 +57,13 @@ class HomeView extends StatelessWidget {
 
   void pressedSmartVitaminCard(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-      return SmartView();
+      return SmartPage();
     }));
   }
 
   void pressedSearchVitaminCard(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-      return SearchView();
+      return SearchPage();
     }));
   }
 }

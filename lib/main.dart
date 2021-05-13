@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vitamin_of_the_day/feature/home/view/home_view.dart';
+import 'package:vitamin_of_the_day/feature/home/view/home_page.dart';
 
 void main() {
   runApp(VitaminApp());
@@ -14,7 +14,7 @@ class _VitaminAppState extends State<VitaminApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeView(),
+      home: HomePage(),
     );
   }
 }

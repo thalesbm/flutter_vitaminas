@@ -12,7 +12,6 @@ class ItemView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: _getTitle(),
-      subtitle: _getSubTitle(),
       leading: _getLeadingIcon(),
       trailing: _getTrailingIcon(),
       onTap: () {
@@ -25,16 +24,7 @@ class ItemView extends StatelessWidget {
     return Text(
       _model.title,
       style: GoogleFonts.ubuntu(
-        textStyle: TextStyle(letterSpacing: 1, color: Colors.black54, fontSize: 14),
-      ),
-    );
-  }
-
-  Text _getSubTitle() {
-    return Text(
-      _model.description,
-      style: GoogleFonts.ubuntu(
-        textStyle: TextStyle(letterSpacing: 1, color: Colors.black38, fontSize: 12),
+        textStyle: TextStyle(letterSpacing: 1.5, color: Colors.black54, fontSize: 14),
       ),
     );
   }
@@ -48,7 +38,7 @@ class ItemView extends StatelessWidget {
 
   Image _getLeadingIcon() {
     return Image(
-      image: AssetImage('assets/images/001-orange.png'),
+      image: AssetImage('assets/images/' + _model.icon + '.png'),
       height: 36,
       width: 36,
     );

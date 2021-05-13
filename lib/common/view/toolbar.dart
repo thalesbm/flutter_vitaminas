@@ -6,8 +6,9 @@ import 'colors.dart';
 
 class CustomToolbar extends StatelessWidget implements PreferredSizeWidget {
   final String _title;
+  final bool displayBackButton;
 
-  CustomToolbar(this._title);
+  CustomToolbar(this._title, {this.displayBackButton = true});
 
   @override
   Size get preferredSize => const Size.fromHeight(56);
@@ -15,6 +16,7 @@ class CustomToolbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leading: _validateBackButton(context),
       title: Text(
         _title,
         style: GoogleFonts.ubuntu(
@@ -26,5 +28,16 @@ class CustomToolbar extends StatelessWidget implements PreferredSizeWidget {
       ),
       backgroundColor: HexColor(PaletteColors.primaryColor),
     );
+  }
+
+  IconButton _validateBackButton(BuildContext context) {
+    if (displayBackButton) {
+      return IconButton(
+        icon: Icon(Icons.arrow_back, color: Colors.white),
+        onPressed: () => Navigator.of(context).pop(),
+      );
+    } else {
+      return null;
+    }
   }
 }
