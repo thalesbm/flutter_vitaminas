@@ -16,7 +16,7 @@ class CustomToolbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-          _title,
+        _title,
         style: GoogleFonts.ubuntu(
           textStyle: TextStyle(
             letterSpacing: 2,
