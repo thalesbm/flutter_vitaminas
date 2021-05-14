@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:vitamin_of_the_day/common/view/toolbar.dart';
-import 'package:vitamin_of_the_day/feature/detail/view/details_page.dart';
+import 'package:vitamin_of_the_day/common/base_page_widget.dart';
+import 'package:vitamin_of_the_day/feature/detail/details_page.dart';
 import 'package:vitamin_of_the_day/feature/search/model/vitamin_model.dart';
 import 'package:vitamin_of_the_day/feature/search/view/item_view.dart';
 
-class SearchPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(appBar: CustomToolbar("Vitaminas"), body: _setBody(context));
-  }
-
+class SearchPage extends BasePageStatelessWidget {
   List<VitaminModel> _model = [
     VitaminModel("Banana com mamão", "005-banana"),
     VitaminModel("Banana com mamão e maça", "015-apple"),
@@ -19,12 +14,18 @@ class SearchPage extends StatelessWidget {
     VitaminModel("Uva", "017-grapes"),
   ];
 
-  Column _setBody(BuildContext context) {
-    return Column(
-      children: [
-        _getTextField(),
-        Expanded(child: _getListView()),
-      ],
+  @override
+  String setToolbarTitle() => "Vitaminas";
+
+  @override
+  Container setBody(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          _getTextField(),
+          Expanded(child: _getListView()),
+        ],
+      ),
     );
   }
 

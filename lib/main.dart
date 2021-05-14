@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vitamin_of_the_day/feature/home/view/home_page.dart';
+import 'package:vitamin_of_the_day/feature/home/home_page.dart';
 
 void main() {
   runApp(VitaminApp());
