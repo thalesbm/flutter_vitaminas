@@ -15,7 +15,7 @@ class ItemView extends StatelessWidget {
       leading: _getLeadingIcon(),
       trailing: _getTrailingIcon(),
       onTap: () {
-        _pressedItem(context);
+        _pressedItem(context, _model);
       },
     );
   }
