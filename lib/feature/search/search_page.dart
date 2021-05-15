@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vitamin_of_the_day/common/base_page_widget.dart';
+import 'package:vitamin_of_the_day/common/base_page_statelesswidget.dart';
 import 'package:vitamin_of_the_day/feature/detail/details_page.dart';
 import 'package:vitamin_of_the_day/feature/search/model/vitamin_model.dart';
 import 'package:vitamin_of_the_day/feature/search/view/item_view.dart';

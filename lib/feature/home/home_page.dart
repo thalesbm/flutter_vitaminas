@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:vitamin_of_the_day/common/base_page_widget.dart';
+import 'package:vitamin_of_the_day/common/base_page_statelesswidget.dart';
 import 'package:vitamin_of_the_day/common/view/colors.dart';
 import 'package:vitamin_of_the_day/feature/home/model/home_model.dart';
 import 'package:vitamin_of_the_day/feature/search/search_page.dart';
