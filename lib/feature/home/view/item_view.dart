@@ -41,16 +41,7 @@ class HomeItemView extends StatelessWidget {
       padding: EdgeInsets.only(left: 16, right: 16, bottom: 8, top: 16),
       child: Align(
         alignment: Alignment.bottomLeft,
-        child: Text(
-          _homeModel.title,
-          style: GoogleFonts.ubuntu(
-            textStyle: TextStyle(
-              letterSpacing: 2,
-              color: Colors.white,
-              fontSize: 18,
-            ),
-          ),
-        ),
+        child: getText(_homeModel.title, 2, 18),
       ),
     );
   }
@@ -60,16 +51,7 @@ class HomeItemView extends StatelessWidget {
       padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
       child: Align(
         alignment: Alignment.bottomLeft,
-        child: Text(
-          _homeModel.description,
-          style: GoogleFonts.ubuntu(
-            textStyle: TextStyle(
-              letterSpacing: 1,
-              color: Colors.white,
-              fontSize: 14,
-            ),
-          ),
-        ),
+        child: getText(_homeModel.description, 1, 14),
       ),
     );
   }
@@ -78,6 +60,19 @@ class HomeItemView extends StatelessWidget {
     return BoxDecoration(
       color: _homeModel.color,
       borderRadius: BorderRadius.circular(4),
+    );
+  }
+
+  Text getText(String text, double spacing, double size) {
+    return Text(
+      text,
+      style: GoogleFonts.ubuntu(
+        textStyle: TextStyle(
+          letterSpacing: spacing,
+          color: Colors.white,
+          fontSize: size,
+        ),
+      ),
     );
   }
 }

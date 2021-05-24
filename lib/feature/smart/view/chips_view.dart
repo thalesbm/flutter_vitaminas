@@ -14,6 +14,7 @@ class ChipsView extends StatefulWidget {
 
 class _ChipsState extends State<ChipsView> {
   final List<String> _fruits;
+  bool _select2ed = false;
 
   _ChipsState(this._fruits);
 
@@ -34,28 +35,36 @@ class _ChipsState extends State<ChipsView> {
   ChoiceChip _getChoiceChip(BuildContext context, String option) {
     return ChoiceChip(
       padding: EdgeInsets.only(left: 8, right: 8),
-      label: Text(
-        option,
-        style: GoogleFonts.ubuntu(
-          textStyle: TextStyle(
-            color: HexColor(PaletteColors.primaryColor),
-          ),
+      label: getText(option),
+      selected: _select2ed,
+      selectedColor: Colors.deepPurple,
+      backgroundColor: HexColor(PaletteColors.grayColor),
+      shape: _getShape(),
+      onSelected: (selected) {
+        setState(() {
+          _select2ed = !_select2ed;
+        });
+      },
+      elevation: 1,
+    );
+  }
+
+  Text getText(String option) {
+    return Text(
+      option,
+      style: GoogleFonts.ubuntu(
+        textStyle: TextStyle(
+          color: HexColor(PaletteColors.primaryColor),
         ),
       ),
-      selected: false,
-      selectedColor: Colors.deepPurple,
-      backgroundColor: Colors.white30,
-      shape: StadiumBorder(side: BorderSide()),
-      onSelected: (selected) {
-        setState(() {});
-      },
-      // onSelected: (value) {
-      //   // setState(() {
-      //   //   defaultChoiceIndex = value ? index : defaultChoiceIndex;
-      //   // });
-      // },
-      // backgroundColor: color,
-      elevation: 1,
+    );
+  }
+
+  StadiumBorder _getShape() {
+    return StadiumBorder(
+      side: BorderSide(
+        color: HexColor(PaletteColors.primaryColor),
+      ),
     );
   }
 }
