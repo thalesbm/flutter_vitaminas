@@ -16,12 +16,25 @@ class SmartPage extends BasePageStatelessWidget {
           child: Column(
             children: [
               HeaderChipsView("Destaque"),
-              ChipsView(_highlightsFruits),
+              _getFruitsList(_highlightsFruits),
               HeaderChipsView("Demais frutas"),
-              ChipsView(_fruits),
+              _getFruitsList(_fruits),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Container _getFruitsList(List<String> fruits) {
+    return  Container(
+      child: Wrap(
+        runSpacing: 8,
+        spacing: 8,
+        runAlignment: WrapAlignment.center,
+        children: List.generate(fruits.length, (index) {
+          return ChipsView(fruits[index]);
+        }),
       ),
     );
   }
