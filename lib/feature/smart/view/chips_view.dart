@@ -21,20 +21,6 @@ class _ChipsState extends State<ChipsView> {
   @override
   Widget build(BuildContext context) {
     return _getChoiceChip(context, _fruit);
-    // return Container(
-    //   child: Wrap(
-    //     runSpacing: 8,
-    //     spacing: 8,
-    //     runAlignment: WrapAlignment.center,
-    //     children: [
-    //       _getChoiceChip(context, _fruits[0]),
-    //       _getChoiceChip(context, _fruits[0])
-    //     ],
-    //     // children: List.generate(_fruits.length, (index) {
-    //     //   return _getChoiceChip(context, _fruits[index]);
-    //     // }),
-    //   ),
-    // );
   }
 
   ChoiceChip _getChoiceChip(BuildContext context, String option) {

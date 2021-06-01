@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:vitamin_of_the_day/common/base_page_statelesswidget.dart';
+import 'package:vitamin_of_the_day/common/router/router.dart';
 import 'package:vitamin_of_the_day/common/view/colors.dart';
 import 'package:vitamin_of_the_day/feature/home/model/home_model.dart';
-import 'package:vitamin_of_the_day/feature/search/search_page.dart';
-import 'package:vitamin_of_the_day/feature/smart/smart_page.dart';
 
 import 'view/item_view.dart';
 
@@ -59,14 +58,10 @@ class HomePage extends BasePageStatelessWidget {
   }
 
   void pressedSmartVitaminCard(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-      return SmartPage();
-    }));
+    VitaminRouter.goToSmartVitamin(context);
   }
 
   void pressedSearchVitaminCard(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-      return SearchPage();
-    }));
+    VitaminRouter.goToSearchVitamin(context);
   }
 }
