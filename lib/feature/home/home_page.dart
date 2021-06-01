@@ -14,6 +14,9 @@ class HomePage extends BasePageStatelessWidget {
   String setToolbarTitle() => "Vitamina do Dia";
 
   @override
+  bool displayToolbarBackIcon() => false;
+
+  @override
   Container setBody(BuildContext context) {
     return Container(
       color: Colors.white30,

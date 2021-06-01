@@ -15,4 +15,7 @@ class DetailsPage extends BasePageStatelessWidget {
   Container setBody(BuildContext context) {
     return Container();
   }
+
+  @override
+  bool displayToolbarBackIcon() => true;
 }

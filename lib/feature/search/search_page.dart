@@ -5,6 +5,10 @@ import 'package:vitamin_of_the_day/feature/search/model/vitamin_model.dart';
 import 'package:vitamin_of_the_day/feature/search/view/item_view.dart';
 
 class SearchPage extends BasePageStatelessWidget {
+
+  @override
+  bool displayToolbarBackIcon() => true;
+
   List<VitaminModel> _model = [
     VitaminModel("Banana com mamão", "005-banana"),
     VitaminModel("Banana com mamão e maça", "015-apple"),

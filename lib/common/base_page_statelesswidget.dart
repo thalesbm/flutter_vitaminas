@@ -7,8 +7,10 @@ abstract class BasePageStatelessWidget extends StatelessWidget {
 
   String setToolbarTitle();
 
+  bool displayToolbarBackIcon();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: CustomToolbar(this.setToolbarTitle()), body: this.setBody(context));
+    return Scaffold(appBar: CustomToolbar(this.setToolbarTitle(), this.displayToolbarBackIcon()), body: this.setBody(context));
   }
 }

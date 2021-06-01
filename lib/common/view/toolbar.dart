@@ -8,7 +8,7 @@ class CustomToolbar extends StatelessWidget implements PreferredSizeWidget {
   final String _title;
   final bool displayBackButton;
 
-  CustomToolbar(this._title, {this.displayBackButton = true});
+  CustomToolbar(this._title, this.displayBackButton);
 
   @override
   Size get preferredSize => const Size.fromHeight(56);

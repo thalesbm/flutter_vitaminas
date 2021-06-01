@@ -4,6 +4,10 @@ import 'package:vitamin_of_the_day/feature/smart/view/chips_view.dart';
 import 'package:vitamin_of_the_day/feature/smart/view/header_view.dart';
 
 class SmartPage extends BasePageStatelessWidget {
+
+  @override
+  bool displayToolbarBackIcon() => true;
+
   @override
   String setToolbarTitle() => "Vitamina Inteligente";
 
