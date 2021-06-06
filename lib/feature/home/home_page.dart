@@ -1,21 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vitamin_of_the_day/common/router/applications_router.dart';
+import 'package:vitamin_of_the_day/common/base_page_statelesswidget.dart';
 import 'package:vitamin_of_the_day/common/router/redirect_routes.dart';
-import 'package:vitamin_of_the_day/common/view/toolbar.dart';
 
 import 'cubit/home_cubit.dart';
 import 'view/item_view.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends BasePageStatelessWidget<Loaded> {
 
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<HomeCubit, HomeState>(
+      builder: (context, state) {
+        if (state is Loaded) {
+          return setPage(context, state);
+        }
+        return Container();
+      },
+    );
+  }
+
+  @override
   String setToolbarTitle() => "Vitamina do Dia";
 
+  @override
   bool displayToolbarBackIcon() => false;
-
-  Widget setPage(BuildContext context, Loaded state) {
-    return Scaffold(appBar: CustomToolbar(this.setToolbarTitle(), this.displayToolbarBackIcon()), body: this.setBody(context, state));
-  }
 
   @override
   Container setBody(BuildContext context, Loaded state) {
@@ -45,17 +54,5 @@ class HomePage extends StatelessWidget {
 
   void pressedSearchVitaminCard(BuildContext context) {
     RedirectRoutes.goToSearchVitamin(context);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
-      builder: (context, state) {
-        if (state is Loaded) {
-          return setPage(context, state);
-        }
-        return Container();
-      },
-    );
   }
 }

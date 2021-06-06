@@ -1,21 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vitamin_of_the_day/common/view/toolbar.dart';
+import 'package:vitamin_of_the_day/common/base_page_statelesswidget.dart';
 import 'package:vitamin_of_the_day/feature/smart/view/chips_view.dart';
 import 'package:vitamin_of_the_day/feature/smart/view/header_view.dart';
 
 import 'cubit/smart_cubit.dart';
 import 'cubit/smart_state.dart';
 
-class SmartPage extends StatelessWidget {
+class SmartPage extends BasePageStatelessWidget<Loaded> {
 
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SmartCubit, SmartState>(
+      builder: (context, state) {
+        if (state is Loaded) {
+          return setPage(context, state);
+        }
+        return Container();
+      },
+    );
+  }
+
+  @override
   bool displayToolbarBackIcon() => true;
 
+  @override
   String setToolbarTitle() => "Vitamina Inteligente";
-
-  Widget setPage(BuildContext context, Loaded state) {
-    return Scaffold(appBar: CustomToolbar(this.setToolbarTitle(), this.displayToolbarBackIcon()), body: this.setBody(context, state));
-  }
 
   @override
   Container setBody(BuildContext context, Loaded state) {
@@ -46,18 +56,6 @@ class SmartPage extends StatelessWidget {
           return ChipsView(fruits[index]);
         }),
       ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<SmartCubit, SmartState>(
-      builder: (context, state) {
-        if (state is Loaded) {
-          return setPage(context, state);
-        }
-        return Container();
-      },
     );
   }
 }

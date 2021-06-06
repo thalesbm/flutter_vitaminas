@@ -1,25 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vitamin_of_the_day/common/base_page_statelesswidget.dart';
-import 'package:vitamin_of_the_day/common/router/applications_router.dart';
 import 'package:vitamin_of_the_day/common/router/redirect_routes.dart';
-import 'package:vitamin_of_the_day/common/view/toolbar.dart';
-import 'package:vitamin_of_the_day/feature/detail/details_page.dart';
 import 'package:vitamin_of_the_day/feature/search/model/vitamin_model.dart';
 import 'package:vitamin_of_the_day/feature/search/view/item_view.dart';
 
 import 'cubit/search_cubit.dart';
 import 'cubit/search_state.dart';
 
-class SearchPage extends StatelessWidget {
+class SearchPage extends BasePageStatelessWidget<Loaded> {
 
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SearchCubit, SearchState>(
+      builder: (context, state) {
+        if (state is Loaded) {
+          return setPage(context, state);
+        }
+        return Container();
+      },
+    );
+  }
+
+  @override
   bool displayToolbarBackIcon() => true;
 
-  String setToolbarTitle() => "Vitaminas";
-
-  Widget setPage(BuildContext context, Loaded state) {
-    return Scaffold(appBar: CustomToolbar(this.setToolbarTitle(), this.displayToolbarBackIcon()), body: this.setBody(context, state));
-  }
+  @override
+  String setToolbarTitle() => "Pesquisar Vitaminas";
 
   @override
   Container setBody(BuildContext context, Loaded state) {
@@ -53,18 +60,6 @@ class SearchPage extends StatelessWidget {
       itemCount: state.list.length,
       itemBuilder: (context, index) {
         return ItemView(state.list[index], pressedItem);
-      },
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<SearchCubit, SearchState>(
-      builder: (context, state) {
-        if (state is Loaded) {
-          return setPage(context, state);
-        }
-        return Container();
       },
     );
   }

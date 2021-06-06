@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:vitamin_of_the_day/common/view/toolbar.dart';
 
-abstract class BasePageStatelessWidget extends StatelessWidget {
+abstract class BasePageStatelessWidget<T> extends StatelessWidget {
 
-  Container setBody(BuildContext context);
+  Container setBody(BuildContext context, T t);
 
   String setToolbarTitle();
 
   bool displayToolbarBackIcon();
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(appBar: CustomToolbar(this.setToolbarTitle(), this.displayToolbarBackIcon()), body: this.setBody(context));
+  Widget setPage(BuildContext context, T state) {
+    return Scaffold(
+      appBar: CustomToolbar(this.setToolbarTitle(), this.displayToolbarBackIcon()),
+      body: this.setBody(context, state),
+    );
   }
 }
