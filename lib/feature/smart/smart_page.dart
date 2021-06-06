@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vitamin_of_the_day/common/base_page_statelesswidget.dart';
+import 'package:vitamin_of_the_day/feature/smart/view/button_view.dart';
 import 'package:vitamin_of_the_day/feature/smart/view/chips_view.dart';
 import 'package:vitamin_of_the_day/feature/smart/view/header_view.dart';
 
@@ -8,7 +9,6 @@ import 'cubit/smart_cubit.dart';
 import 'cubit/smart_state.dart';
 
 class SmartPage extends BasePageStatelessWidget<Loaded> {
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SmartCubit, SmartState>(
@@ -39,6 +39,7 @@ class SmartPage extends BasePageStatelessWidget<Loaded> {
               _getFruitsList(state.highlightsFruits),
               HeaderChipsView("Demais frutas"),
               _getFruitsList(state.fruits),
+              ButtonView(_pressedButton),
             ],
           ),
         ),
@@ -47,7 +48,7 @@ class SmartPage extends BasePageStatelessWidget<Loaded> {
   }
 
   Container _getFruitsList(List<String> fruits) {
-    return  Container(
+    return Container(
       child: Wrap(
         runSpacing: 8,
         spacing: 8,
@@ -58,4 +59,6 @@ class SmartPage extends BasePageStatelessWidget<Loaded> {
       ),
     );
   }
+
+  void _pressedButton() {}
 }
