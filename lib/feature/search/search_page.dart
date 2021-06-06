@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vitamin_of_the_day/common/base_page_statelesswidget.dart';
-import 'package:vitamin_of_the_day/common/router/router.dart';
+import 'package:vitamin_of_the_day/common/router/applications_router.dart';
+import 'package:vitamin_of_the_day/common/router/redirect_routes.dart';
 import 'package:vitamin_of_the_day/common/view/toolbar.dart';
 import 'package:vitamin_of_the_day/feature/detail/details_page.dart';
 import 'package:vitamin_of_the_day/feature/search/model/vitamin_model.dart';
@@ -69,6 +70,6 @@ class SearchPage extends StatelessWidget {
   }
 
   void pressedItem(BuildContext context, VitaminModel model) {
-    Navigator.of(context).pushNamed("details", arguments: model);
+    RedirectRoutes.goToDetails(context, model);
   }
 }

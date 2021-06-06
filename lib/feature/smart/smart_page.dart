@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vitamin_of_the_day/common/base_page_statelesswidget.dart';
 import 'package:vitamin_of_the_day/common/view/toolbar.dart';
 import 'package:vitamin_of_the_day/feature/smart/view/chips_view.dart';
 import 'package:vitamin_of_the_day/feature/smart/view/header_view.dart';

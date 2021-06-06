@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vitamin_of_the_day/common/router/router.dart';
+import 'package:vitamin_of_the_day/common/router/applications_router.dart';
+import 'package:vitamin_of_the_day/common/router/redirect_routes.dart';
 import 'package:vitamin_of_the_day/common/view/toolbar.dart';
 
 import 'cubit/home_cubit.dart';
@@ -39,11 +40,11 @@ class HomePage extends StatelessWidget {
   void pressedLuckOfTheDayCard(BuildContext context) {}
 
   void pressedSmartVitaminCard(BuildContext context) {
-    Navigator.of(context).pushNamed("smart");
+    RedirectRoutes.goToSmartVitamin(context);
   }
 
   void pressedSearchVitaminCard(BuildContext context) {
-    Navigator.of(context).pushNamed("search");
+    RedirectRoutes.goToSearchVitamin(context);
   }
 
   @override
