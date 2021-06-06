@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vitamin_of_the_day/common/base_page_statelesswidget.dart';
+import 'package:vitamin_of_the_day/common/base_page_stateless_widget.dart';
 import 'package:vitamin_of_the_day/common/router/redirect_routes.dart';
 
 import 'cubit/home_cubit.dart';
