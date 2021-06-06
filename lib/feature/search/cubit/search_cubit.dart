@@ -1,9 +1,5 @@
 
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:vitamin_of_the_day/common/view/colors.dart';
-import 'package:vitamin_of_the_day/feature/home/model/home_model.dart';
 import 'package:vitamin_of_the_day/feature/search/cubit/search_state.dart';
 import 'package:vitamin_of_the_day/feature/search/model/vitamin_model.dart';
 

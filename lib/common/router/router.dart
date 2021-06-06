@@ -6,21 +6,21 @@ import 'package:vitamin_of_the_day/feature/smart/smart_page.dart';
 
 class VitaminRouter {
 
-  static void goToSmartVitamin(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-      return SmartPage();
-    }));
-  }
-
-  static void goToSearchVitamin(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-      return SearchPage();
-    }));
-  }
-
-  static void goToDetails(BuildContext context, VitaminModel model) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-      return DetailsPage(model);
-    }));
-  }
+  // static void goToSmartVitamin(BuildContext context) {
+  //   Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+  //     return SmartPage();
+  //   }));
+  // }
+  //
+  // static void goToSearchVitamin(BuildContext context) {
+  //   Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+  //     return SearchPage();
+  //   }));
+  // }
+  //
+  // static void goToDetails(BuildContext context, VitaminModel model) {
+  //   Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+  //     return DetailsPage(model);
+  //   }));
+  // }
 }

@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vitamin_of_the_day/feature/detail/cubit/detail_cubit.dart';
+import 'package:vitamin_of_the_day/feature/detail/details_page.dart';
 import 'package:vitamin_of_the_day/feature/home/home_page.dart';
+import 'package:vitamin_of_the_day/feature/search/model/vitamin_model.dart';
 import 'package:vitamin_of_the_day/feature/search/search_page.dart';
+import 'package:vitamin_of_the_day/feature/smart/smart_page.dart';
 
 import 'feature/home/cubit/home_cubit.dart';
 import 'feature/search/cubit/search_cubit.dart';
+import 'feature/smart/cubit/smart_cubit.dart';
 
 void main() {
   runApp(
@@ -31,22 +36,19 @@ Map<String, WidgetBuilder> _applicationRoutes() => {
     );
   },
 
-};
+  "smart": (context) {
+    return BlocProvider<SmartCubit>(
+      create: (context) => SmartCubit(),
+      child: SmartPage(),
+    );
+  },
 
-// void main() {
-//   runApp(VitaminApp());
-// }
-//
-// class VitaminApp extends StatefulWidget {
-//   @override
-//   _VitaminAppState createState() => _VitaminAppState();
-// }
-//
-// class _VitaminAppState extends State<VitaminApp> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       home: HomePage(),
-//     );
-//   }
-// }
+  "details": (context) {
+    final args = ModalRoute.of(context).settings.arguments as VitaminModel;
+    return BlocProvider<DetailsCubit>(
+      create: (context) => DetailsCubit(),
+      child: DetailsPage(args),
+    );
+  },
+
+};

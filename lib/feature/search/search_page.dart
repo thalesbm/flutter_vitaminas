@@ -69,6 +69,6 @@ class SearchPage extends StatelessWidget {
   }
 
   void pressedItem(BuildContext context, VitaminModel model) {
-    // VitaminRouter.goToDetails(context, model);
+    Navigator.of(context).pushNamed("details", arguments: model);
   }
 }

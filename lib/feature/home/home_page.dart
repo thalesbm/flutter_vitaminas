@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
   void pressedLuckOfTheDayCard(BuildContext context) {}
 
   void pressedSmartVitaminCard(BuildContext context) {
-    VitaminRouter.goToSmartVitamin(context);
+    Navigator.of(context).pushNamed("smart");
   }
 
   void pressedSearchVitaminCard(BuildContext context) {

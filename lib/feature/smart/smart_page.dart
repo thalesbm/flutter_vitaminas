@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vitamin_of_the_day/common/base_page_statelesswidget.dart';
+import 'package:vitamin_of_the_day/common/view/toolbar.dart';
 import 'package:vitamin_of_the_day/feature/smart/view/chips_view.dart';
 import 'package:vitamin_of_the_day/feature/smart/view/header_view.dart';
 
-class SmartPage extends BasePageStatelessWidget {
+import 'cubit/smart_cubit.dart';
+import 'cubit/smart_state.dart';
 
-  @override
+class SmartPage extends StatelessWidget {
+
   bool displayToolbarBackIcon() => true;
 
-  @override
   String setToolbarTitle() => "Vitamina Inteligente";
 
+  Widget setPage(BuildContext context, Loaded state) {
+    return Scaffold(appBar: CustomToolbar(this.setToolbarTitle(), this.displayToolbarBackIcon()), body: this.setBody(context, state));
+  }
+
   @override
-  Container setBody(BuildContext context) {
+  Container setBody(BuildContext context, Loaded state) {
     return Container(
       color: Colors.white30,
       child: SingleChildScrollView(
@@ -20,9 +27,9 @@ class SmartPage extends BasePageStatelessWidget {
           child: Column(
             children: [
               HeaderChipsView("Destaque"),
-              _getFruitsList(_highlightsFruits),
+              _getFruitsList(state.highlightsFruits),
               HeaderChipsView("Demais frutas"),
-              _getFruitsList(_fruits),
+              _getFruitsList(state.fruits),
             ],
           ),
         ),
@@ -43,58 +50,15 @@ class SmartPage extends BasePageStatelessWidget {
     );
   }
 
-  List<String> _highlightsFruits = [
-    "Abacate",
-    "Abacaxi",
-    "Banana",
-    "Carambola",
-    "Coco",
-    "Goiaba",
-    "Kiwi",
-    "Laranja",
-    "Limão",
-    "Maçã",
-    "Mamão",
-    "Manga",
-    "Maracujá",
-    "Melancia",
-    "Melão",
-    "Morango",
-    "Pera",
-    "Pêssego",
-    "Tangerina"
-  ];
-  List<String> _fruits = [
-    "Açaí",
-    "Acerola",
-    "Amora",
-    "Araticum",
-    "Bacaba",
-    "Biribá",
-    "Cacau",
-    "Cajá",
-    "Caqui",
-    "Cereja",
-    "Cidra",
-    "Cupuaçu",
-    "Figo",
-    "Framboesa",
-    "Groselha",
-    "Ingá",
-    "Jabuticaba",
-    "Jaca",
-    "Jambo",
-    "Jenipapo",
-    "Mangaba",
-    "Pequi",
-    "Pitanga",
-    "Pitaya",
-    "Pupunha",
-    "Romã",
-    "Siriguela",
-    "Tâmara",
-    "Tamarindo",
-    "Tucumã",
-    "Uva"
-  ];
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SmartCubit, SmartState>(
+      builder: (context, state) {
+        if (state is Loaded) {
+          return setPage(context, state);
+        }
+        return Container();
+      },
+    );
+  }
 }
