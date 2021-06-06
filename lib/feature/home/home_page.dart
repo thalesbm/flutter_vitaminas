@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
   }
 
   void pressedSearchVitaminCard(BuildContext context) {
-    VitaminRouter.goToSearchVitamin(context);
+    Navigator.of(context).pushNamed("search");
   }
 
   @override

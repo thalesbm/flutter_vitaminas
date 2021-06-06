@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vitamin_of_the_day/feature/home/home_page.dart';
+import 'package:vitamin_of_the_day/feature/search/search_page.dart';
 
 import 'feature/home/cubit/home_cubit.dart';
+import 'feature/search/cubit/search_cubit.dart';
 
 void main() {
   runApp(
@@ -22,13 +24,12 @@ Map<String, WidgetBuilder> _applicationRoutes() => {
     );
   },
 
-  // "detail": (context) {
-  //   final args = ModalRoute.of(context).settings.arguments as Items;
-  //   return BlocProvider<DetailCubit>(
-  //     create: (context) => DetailCubit(item: args),
-  //     child: DetailWidget(),
-  //   );
-  // },
+  "search": (context) {
+    return BlocProvider<SearchCubit>(
+      create: (context) => SearchCubit(),
+      child: SearchPage(),
+    );
+  },
 
 };
 

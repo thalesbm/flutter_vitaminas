@@ -1,34 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vitamin_of_the_day/common/base_page_statelesswidget.dart';
 import 'package:vitamin_of_the_day/common/router/router.dart';
+import 'package:vitamin_of_the_day/common/view/toolbar.dart';
 import 'package:vitamin_of_the_day/feature/detail/details_page.dart';
 import 'package:vitamin_of_the_day/feature/search/model/vitamin_model.dart';
 import 'package:vitamin_of_the_day/feature/search/view/item_view.dart';
 
-class SearchPage extends BasePageStatelessWidget {
+import 'cubit/search_cubit.dart';
+import 'cubit/search_state.dart';
 
-  @override
+class SearchPage extends StatelessWidget {
+
   bool displayToolbarBackIcon() => true;
 
-  List<VitaminModel> _model = [
-    VitaminModel("Banana com mamão", "005-banana"),
-    VitaminModel("Banana com mamão e maça", "015-apple"),
-    VitaminModel("Banana com mamão e pera", "014-pear"),
-    VitaminModel("Abacate", "022-avocado"),
-    VitaminModel("Melancia", "006-water-melon"),
-    VitaminModel("Uva", "017-grapes"),
-  ];
-
-  @override
   String setToolbarTitle() => "Vitaminas";
 
+  Widget setPage(BuildContext context, Loaded state) {
+    return Scaffold(appBar: CustomToolbar(this.setToolbarTitle(), this.displayToolbarBackIcon()), body: this.setBody(context, state));
+  }
+
   @override
-  Container setBody(BuildContext context) {
+  Container setBody(BuildContext context, Loaded state) {
     return Container(
       child: Column(
         children: [
           _getTextField(),
-          Expanded(child: _getListView()),
+          Expanded(child: _getListView(state)),
         ],
       ),
     );
@@ -49,16 +47,28 @@ class SearchPage extends BasePageStatelessWidget {
     );
   }
 
-  ListView _getListView() {
+  ListView _getListView(Loaded state) {
     return ListView.builder(
-      itemCount: _model.length,
+      itemCount: state.list.length,
       itemBuilder: (context, index) {
-        return ItemView(_model[index], pressedItem);
+        return ItemView(state.list[index], pressedItem);
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SearchCubit, SearchState>(
+      builder: (context, state) {
+        if (state is Loaded) {
+          return setPage(context, state);
+        }
+        return Container();
       },
     );
   }
 
   void pressedItem(BuildContext context, VitaminModel model) {
-    VitaminRouter.goToDetails(context, model);
+    // VitaminRouter.goToDetails(context, model);
   }
 }
