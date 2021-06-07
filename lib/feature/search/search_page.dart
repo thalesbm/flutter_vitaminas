@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vitamin_of_the_day/common/base_page_stateless_widget.dart';
+import 'package:vitamin_of_the_day/common/view/base_page_stateless_widget.dart';
 import 'package:vitamin_of_the_day/common/router/redirect_routes.dart';
 import 'package:vitamin_of_the_day/feature/search/model/vitamin_model.dart';
 import 'package:vitamin_of_the_day/feature/search/view/item_view.dart';
@@ -65,6 +65,6 @@ class SearchPage extends BasePageStatelessWidget<Loaded> {
   }
 
   void pressedItem(BuildContext context, VitaminModel model) {
-    RedirectRoutes.goToDetails(context, model);
+    RedirectRoutes.goToDetails(context, model, false);
   }
 }

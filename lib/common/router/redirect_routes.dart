@@ -12,7 +12,15 @@ class RedirectRoutes {
     Navigator.of(context).pushNamed(Routes.search);
   }
 
-  static void goToDetails(BuildContext context, VitaminModel model) {
-    Navigator.of(context).pushNamed(Routes.details, arguments: model);
+  static void goToDetails(BuildContext context, VitaminModel model, bool removeCurrent) {
+    if (removeCurrent) {
+      Navigator.of(context).popAndPushNamed(Routes.details, arguments: model);
+    } else {
+      Navigator.of(context).pushNamed(Routes.details, arguments: model);
+    }
+  }
+
+  static void goToLuckOfTheDay(BuildContext context) {
+    Navigator.of(context).pushNamed(Routes.luck);
   }
 }

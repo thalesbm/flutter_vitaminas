@@ -1,8 +1,7 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:vitamin_of_the_day/common/view/colors.dart';
+import 'package:vitamin_of_the_day/common/components/colors.dart';
 import 'package:vitamin_of_the_day/feature/home/model/home_model.dart';
 
 part 'home_state.dart';

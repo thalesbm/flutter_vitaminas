@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:vitamin_of_the_day/common/view/colors.dart';
+import 'package:vitamin_of_the_day/common/components/colors.dart';
 
 class ChipsView extends StatefulWidget {
   final String fruit;

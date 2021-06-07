@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vitamin_of_the_day/common/view/toolbar.dart';
+import 'package:vitamin_of_the_day/common/components/toolbar.dart';
 
 abstract class BasePageStatelessWidget<T> extends StatelessWidget {
 

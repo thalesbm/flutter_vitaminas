@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vitamin_of_the_day/common/base_page_stateless_widget.dart';
+import 'package:vitamin_of_the_day/common/view/base_page_stateless_widget.dart';
 import 'package:vitamin_of_the_day/common/router/redirect_routes.dart';
 
 import 'cubit/home_cubit.dart';
@@ -46,7 +46,9 @@ class HomePage extends BasePageStatelessWidget<Loaded> {
     );
   }
 
-  void pressedLuckOfTheDayCard(BuildContext context) {}
+  void pressedLuckOfTheDayCard(BuildContext context) {
+    RedirectRoutes.goToLuckOfTheDay(context);
+  }
 
   void pressedSmartVitaminCard(BuildContext context) {
     RedirectRoutes.goToSmartVitamin(context);

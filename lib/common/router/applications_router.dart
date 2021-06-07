@@ -5,6 +5,8 @@ import 'package:vitamin_of_the_day/feature/detail/cubit/detail_cubit.dart';
 import 'package:vitamin_of_the_day/feature/detail/details_page.dart';
 import 'package:vitamin_of_the_day/feature/home/cubit/home_cubit.dart';
 import 'package:vitamin_of_the_day/feature/home/home_page.dart';
+import 'package:vitamin_of_the_day/feature/luck/cubit/luck_cubit.dart';
+import 'package:vitamin_of_the_day/feature/luck/luck_page.dart';
 import 'package:vitamin_of_the_day/feature/search/cubit/search_cubit.dart';
 import 'package:vitamin_of_the_day/feature/search/model/vitamin_model.dart';
 import 'package:vitamin_of_the_day/feature/search/search_page.dart';
@@ -36,6 +38,12 @@ class ApplicationsRouter {
           return BlocProvider<DetailsCubit>(
             create: (context) => DetailsCubit(),
             child: DetailsPage(args),
+          );
+        },
+        Routes.luck: (context) {
+          return BlocProvider<LuckCubit>(
+            create: (context) => LuckCubit(),
+            child: LuckPage(),
           );
         },
       };
